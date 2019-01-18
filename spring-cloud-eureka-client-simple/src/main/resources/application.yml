@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: spring-cloud-eureka-client-simple # \u5DE5\u7A0B\u540D\u79F0\uFF0C\u4E5F\u662F\u6CE8\u518C\u5230 server \u540E\u7684\u5B9E\u4F8B\u540D\u79F0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka      # \u6307\u5B9A Zone\uFF0C\u9700\u8981\u4E0E Eureka Server \u4E00\u6837
+  instance:
+    prefer-ip-address: true # \u4F7F\u7528 ip \u6CE8\u518C\uFF0C\u9ED8\u8BA4\u4E3A false\u3002\u4E3A false \u65F6\u662F \u673A\u5668\u540D
+    instance-id: ${spring.application.name}:${server.port} # \u6CE8\u518C\u5230 server \u540E\u663E\u793A\u7684\u540D\u5B57\uFF0C\u9ED8\u8BA4\u662F \u673A\u5668\u540D:name:\u7AEF\u53E3
+
+server:
+  port: 8081 # \u7AEF\u53E3
