@@ -1,23 +1,16 @@
 spring:
   application:
-    # \u670D\u52A1\u540D\u79F0
-    name: eureka-server
+    name: eureka-server # 服务名称
 server:
-  # \u670D\u52A1\u7AEF\u53E3
-  port: 8761
+  port: 8761 # 服务端口
 
 eureka:
   instance:
-    # host name
-    hostname: localhost
+    hostname: localhost # host name
   client:
-    # \u662F\u5426\u83B7\u53D6\u6CE8\u518C\u8868
-    fetch-registry: false
+    fetch-registry: false # 是否获取注册表
     service-url:
-      # \u9ED8\u8BA4 Zone
-      defaultZone: http://${spring.application.name:localhost}:${server.port:8761}/eureka/
-    # \u662F\u5426\u6CE8\u518C\u81EA\u5DF1
-    register-with-eureka: false
+      defaultZone: http://localhost:${server.port:8761}/eureka/ # 默认 Zone
+    register-with-eureka: false # 是否注册自己
   server:
-    # \u662F\u5426\u5F00\u542F\u81EA\u6211\u4FDD\u62A4
-    enable-self-preservation: false
+    enable-self-preservation: true # 是否开启自我保护，默认 true。在本机测试可以使用 false，但是在生产环境下必须为 true

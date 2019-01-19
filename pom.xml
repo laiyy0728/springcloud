@@ -18,6 +18,7 @@
 
     <modules>
         <module>spring-cloud-eureka-server</module>
+        <module>spring-cloud-eureka-client-simple</module>
     </modules>
 
 
