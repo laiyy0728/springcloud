@@ -7,9 +7,9 @@
         <artifactId>spring-cloud-eureka</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>spring-cloud-eureka-client-simple</artifactId>
+    <artifactId>spring-cloud-eureka-client-http-basic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-eureka-client-simple</name>
+    <name>spring-cloud-eureka-client-http-basic</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

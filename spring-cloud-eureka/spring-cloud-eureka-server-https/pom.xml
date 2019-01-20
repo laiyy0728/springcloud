@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.laiyy.gitee.eureka</groupId>
+       <groupId>com.laiyy.gitee.eureka</groupId>
         <artifactId>spring-cloud-eureka</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>spring-cloud-eureka-client-simple</artifactId>
+    <artifactId>spring-cloud-eureka-server-https</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-eureka-client-simple</name>
+    <name>spring-cloud-eureka-server-https</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
     </dependencies>
 

@@ -7,9 +7,9 @@
         <artifactId>spring-cloud-eureka</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>spring-cloud-eureka-client-simple</artifactId>
+    <artifactId>spring-cloud-eureka-client-region-zone</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-eureka-client-simple</name>
+    <name>spring-cloud-eureka-client-region-zone</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -20,6 +20,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,0 +1,22 @@
+server:
+  port: 8761
+  ssl:
+    enabled: true
+    key-store-type: PKCS12 # type 与 keytool 的 storetype 一致
+    key-alias: server # 与 keytool 的 alias 一致
+    key-store: classpath:server.p12 # p12 文件地址
+    key-store-password: 123456
+
+eureka:
+  instance:
+    hostname: localhost
+    secure-port: ${server.port}
+    secure-port-enabled: true
+    non-secure-port-enabled: false
+    home-page-url: https://${eureka.instance.hostname}:${server.port}
+    status-page-url: https://${eureka.instance.hostname}:${server.port}
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka/
