@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-cloud-eureka</module>
+        <module>spring-cloud-feign</module>
     </modules>
 
     <parent>
