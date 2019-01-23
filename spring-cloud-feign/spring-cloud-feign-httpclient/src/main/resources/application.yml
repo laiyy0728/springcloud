@@ -1,0 +1,9 @@
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: false
+logging:
+  level:
+    com.laiyy.gitee.feign.springcloudfeignhttpclient.feign.GiteeFeignClient: debug
+##
