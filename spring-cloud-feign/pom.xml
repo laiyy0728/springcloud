@@ -13,5 +13,11 @@
     <groupId>com.laiyy.gitee.feign</groupId>
     <artifactId>spring-cloud-feign</artifactId>
 
+    <modules>
+        <module>spring-cloud-feign-gzip</module>
+        <module>spring-cloud-feign-simple</module>
+        <module>spring-cloud-feign-config</module>
+    </modules>
+
 
 </project>
