@@ -1,0 +1,11 @@
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-type: text/html,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+logging:
+  level:
+    com.laiyy.gitee.feign.springcloudfeigngzip.feign.GiteeFeignClient: debug

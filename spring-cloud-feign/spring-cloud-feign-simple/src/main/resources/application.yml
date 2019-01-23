@@ -1,0 +1,3 @@
+logging:
+  level:
+    com.laiyy.gitee.feign.springcloudfeignsimple.feign.GiteeFeignClient: debug
