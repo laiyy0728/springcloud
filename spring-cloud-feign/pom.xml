@@ -18,6 +18,7 @@
         <module>spring-cloud-feign-simple</module>
         <module>spring-cloud-feign-config</module>
         <module>spring-cloud-feign-multi-params</module>
+        <module>spring-cloud-feign-file</module>
     </modules>
 
 
