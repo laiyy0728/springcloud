@@ -1,0 +1,20 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+spring:
+  application:
+    name: spring-cloud-feign-multi-params-consumer
+server:
+  port: 8889
+
+feign:
+  client:
+    config:
+      spring-cloud-feign-multi-params-provider:
+        loggerLevel: full
+logging:
+  level:
+    com.laiyy.gitee.feign.multi.params.springcloudfeignmultiparamscomsumer.MultiParamsProviderFeignClient: debug
