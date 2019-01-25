@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: spring-cloud-feign-file-server
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8889

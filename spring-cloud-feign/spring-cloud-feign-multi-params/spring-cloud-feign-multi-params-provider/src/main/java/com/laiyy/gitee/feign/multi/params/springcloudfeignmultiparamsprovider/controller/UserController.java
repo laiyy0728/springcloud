@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author laiyy
  * @date 2019/1/24 10:42
@@ -17,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @GetMapping(value = "/add")
-    public String addUser(User user){
+    public String addUser(User user, HttpServletRequest request){
+        System.out.println("Provider Header --> " + request.getHeader("oauth-token"));
         return "hello!" + user.getName();
     }
 

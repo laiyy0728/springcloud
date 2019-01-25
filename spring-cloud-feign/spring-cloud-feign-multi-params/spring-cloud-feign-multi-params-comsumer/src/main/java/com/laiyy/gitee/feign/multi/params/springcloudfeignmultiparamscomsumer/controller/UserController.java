@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author laiyy
  * @date 2019/1/24 10:35
@@ -24,7 +26,8 @@ public class UserController {
     }
 
     @GetMapping(value = "add-user")
-    public String addUser(User user){
+    public String addUser(User user, HttpServletRequest request){
+        System.out.println("Consumer Header ---> "+request.getHeader("oauth-token"));
         return feignClient.addUser(user);
     }
 
