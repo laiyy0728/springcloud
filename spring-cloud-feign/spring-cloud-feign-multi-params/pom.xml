@@ -16,6 +16,7 @@
 
     <modules>
         <module>spring-cloud-feign-multi-params-provider</module>
+        <module>spring-cloud-feign-multi-params-comsumer</module>
     </modules>
 
 

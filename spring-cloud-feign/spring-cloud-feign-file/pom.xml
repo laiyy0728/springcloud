@@ -16,5 +16,6 @@
 
     <modules>
         <module>spring-cloud-feign-file-server</module>
+        <module>spring-cloud-feign-file-client</module>
     </modules>
 </project>
