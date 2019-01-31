@@ -1,0 +1,8 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream # 开启 hystrix.stream actuator端点
+feign:
+  hystrix:
+    enabled: true

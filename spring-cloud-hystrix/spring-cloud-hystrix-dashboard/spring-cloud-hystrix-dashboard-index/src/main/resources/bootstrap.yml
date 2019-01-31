@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: spring-cloud-hystrix-dashboard-index
+server:
+  port: 9999
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

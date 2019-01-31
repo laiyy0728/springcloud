@@ -12,5 +12,17 @@
     <groupId>com.laiyy.gitee.dashboard</groupId>
     <artifactId>spring-cloud-hystrix-dashboard</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+
+
+
+    <modules>
+        <module>spring-cloud-hystrix-dashboard-hello-service</module>
+    </modules>
 
 </project>
