@@ -8,6 +8,7 @@
         <module>spring-cloud-eureka</module>
         <module>spring-cloud-feign</module>
         <module>spring-cloud-ribbon</module>
+        <module>spring-cloud-hystrix</module>
     </modules>
 
     <parent>
