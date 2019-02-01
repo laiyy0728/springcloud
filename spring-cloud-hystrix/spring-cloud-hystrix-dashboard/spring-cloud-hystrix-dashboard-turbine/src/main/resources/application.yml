@@ -1,0 +1,23 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: spring-cloud-hystrix-dashboard-turbne
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: hystrix.stream
+turbine:
+  app-config: spring-cloud-hystrix-dashboard-hello-service,spring-cloud-hystrix-dashboard-provider-service
+  cluster-name-expression: "'default'"
