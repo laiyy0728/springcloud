@@ -3,20 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-cloud</artifactId>
-        <groupId>com.laiyy.gitee</groupId>
+        <artifactId>spring-cloud-hystrix</artifactId>
+        <groupId>com.laiyy.gitee.hystrix</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.laiyy.gitee.hystrix.cache</groupId>
+    <artifactId>spring-cloud-hystrix-cache</artifactId>
+
     <packaging>pom</packaging>
-    <groupId>com.laiyy.gitee.hystrix</groupId>
-    <artifactId>spring-cloud-hystrix</artifactId>
 
     <modules>
-        <module>spring-cloud-hystrix-simple</module>
-        <module>spring-cloud-hystrix-feign-broker</module>
-        <module>spring-cloud-hystrix-dashboard</module>
-        <module>spring-cloud-hystrix-cache</module>
+        <module>spring-cloud-hystrix-cache-impl</module>
     </modules>
 
 </project>
