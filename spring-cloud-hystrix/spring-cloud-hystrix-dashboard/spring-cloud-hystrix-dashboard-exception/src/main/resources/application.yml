@@ -26,7 +26,7 @@ ribbon:
 feign:
   hystrix:
     enabled: true
-#  client:
-#    config:
-#      spring-cloud-hystrix-dashboard-provider-service:
-#        errorDecoder: com.laiyy.gitee.dashboard.springcloudhystrixdashboardexception.decoder.BadRequestErrorDecoder
+  client:
+    config:
+      spring-cloud-hystrix-dashboard-provider-service:
+        errorDecoder: com.laiyy.gitee.dashboard.springcloudhystrixdashboardexception.decoder.BadRequestErrorDecoder

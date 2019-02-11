@@ -10,3 +10,31 @@ eureka:
     prefer-ip-address: true
 server:
   port: 8888
+
+
+# Hystrix 配置
+#hystrix:
+#  command:
+#    default: # default 为全局配置，如果需要针对某个 Fallback 配置，需要使用 HystrixCommandKey
+#      circuitBreaker:
+#        errorThresholdPercentage: 50 # 这是打开 Fallback 并启动 Fallback 的错误比例。默认 50%
+#        forceOpen: false # 是否强制打开断路器，拒绝所有请求。默认 false
+#      execution:
+#        isolation:
+#          strategy: THREAD # SEMAPHORE  请求隔离策略，默认 THREAD
+#          # 当 strategy 为 THREAD 时
+#          thread:
+#            timeoutInMilliseconds: 5000 # 执行超时时间  默认 1000
+#            interruptOnTimeout: true # 超时时是否中断执行，默认 true
+#          # 当 strategy 为 SEMAPHORE 时
+#          semaphore:
+#            maxConcurrentRequests: 10 # 最大允许请求数，默认 10
+#        # 是否开启超时
+#        timeout:
+#          enabled: true # 默认 true
+#  # 当隔离策略为 thread 时
+#  threadpool:
+#    default: # default 为全局配置，如果需要再很对某个 线程池 配置，需要使用 HystrixThreadPoolKey
+#      coreSize: 10 # 默认线程池大小，默认 10
+#      maximumSize: 10 # 最大线程池，默认 10
+#      allowMaximumSizeToDivergeFromCoreSize: false # 是否允许 maximumSize 配置生效
