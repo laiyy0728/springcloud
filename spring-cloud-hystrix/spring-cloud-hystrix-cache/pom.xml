@@ -16,6 +16,7 @@
 
     <modules>
         <module>spring-cloud-hystrix-cache-impl</module>
+        <module>spring-cloud-hystrix-cache-provider-user</module>
     </modules>
 
 </project>
