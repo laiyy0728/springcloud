@@ -17,6 +17,8 @@
         <module>spring-cloud-hystrix-feign-broker</module>
         <module>spring-cloud-hystrix-dashboard</module>
         <module>spring-cloud-hystrix-cache</module>
+        <module>spring-cloud-hystrix-thread</module>
+        <module>spring-cloud-hsytrix-collapser</module>
     </modules>
 
 </project>
