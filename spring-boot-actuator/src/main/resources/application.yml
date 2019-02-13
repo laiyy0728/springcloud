@@ -6,3 +6,8 @@ management:
   endpoint:
     shutdown:
       enabled: true
+
+info:
+  contect:
+    email: laiyy0728@gmail.com
+    phone: 18888888888
