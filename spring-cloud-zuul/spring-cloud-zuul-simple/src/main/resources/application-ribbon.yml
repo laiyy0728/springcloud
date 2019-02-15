@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: spring-cloud-zuul-simple
+server:
+  port: 8989
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+
+# ribbon
+zuul:
+  routes:
+    spring-cloud-provider-service-simple:
+      path: /ribbon-route/**
+      serviceId: spring-cloud-provider-service-simple
+ribbon:
+  eureka:
+    enabled: false
+
+spring-cloud-provider-service-simple:
+  ribbon:
+    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    listOfServers: http://localhost:8080,http://localhost:8081
+
+
+# local forward
+#zuul:
+#  routes:
+#    spring-cloud-provider-service-simple:
+#      path: /provider/**
+#      url: forward:/client # 只有访问 /provider 的时候才会 forward，但凡后面多一个路径就不行了。。。 为啥。。。

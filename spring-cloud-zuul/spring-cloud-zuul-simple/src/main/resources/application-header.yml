@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: spring-cloud-zuul-simple
+server:
+  port: 8989
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+zuul:
+  routes:
+    spring-cloud-provider-service-simple:
+      path: /provider/**
+      serviceId: spring-cloud-provider-service-simple
+      sensitiveHeaders: postman-token,Cookie,x-forwarded-for

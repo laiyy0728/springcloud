@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: spring-cloud-zuul-simple
+server:
+  port: 8989
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+
+# local forward
+zuul:
+  routes:
+    spring-cloud-provider-service-simple:
+      path: /provider/**
+      url: forward:/client # 只有访问 /provider 的时候才会 forward，但凡后面多一个路径就不行了。。。 为啥。。。
