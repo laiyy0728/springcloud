@@ -16,7 +16,9 @@
 
     <modules>
         <module>spring-cloud-zuul-simple</module>
+        <module>spring-cloud-zuul-filter</module>
         <module>spring-cloud-zuul-provider-service-simple</module>
+        <module>spring-cloud-zuul-security</module>
     </modules>
 
 </project>

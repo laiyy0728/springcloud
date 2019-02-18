@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: spring-cloud-zuul-security-server
+server:
+  port: 5555
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+zuul:
+  routes:
+    spring-cloud-zuul-security-provider-service:
+      path: /provider/**
+      serviceId: spring-cloud-zuul-security-provider-service
+security:
+  oauth2:
+    client:
+      access-token-uri:  http://localhost:7777/uaa/oauth/token # \u4EE4\u724C\u7AEF\u70B9
+      user-authorization-uri: http://localhost:7777/uaa/oauth/authorize # \u6388\u6743\u7AEF\u70B9
+      client-id: zuul_server # OAuth2 \u5BA2\u6237\u7AEFid
+      client-secret: secret # OAuth2 \u5BA2\u6237\u7AEF\u79D8\u94A5
+    resource:
+      jwt:
+        key-value: spring-cloud # \u4F7F\u7528\u5BF9\u79F0\u52A0\u5BC6\uFF0C\u9ED8\u8BA4\u7B97\u6CD5\u4E3A HS256\uFF0C\u52A0\u5BC6\u79D8\u94A5\u4E3A spring-cloud
