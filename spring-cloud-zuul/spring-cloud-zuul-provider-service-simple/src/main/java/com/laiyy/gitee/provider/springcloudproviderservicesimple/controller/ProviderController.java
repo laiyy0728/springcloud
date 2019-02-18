@@ -30,4 +30,10 @@ public class ProviderController {
         return "this is provider service! this port is: " + serverPort + " headers: " + headers;
     }
 
+
+    @GetMapping(value = "/add")
+    public String add(int a, int b){
+        return "result is : a + b = " + (a + b);
+    }
+
 }
