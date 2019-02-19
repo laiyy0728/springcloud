@@ -3,6 +3,8 @@ spring:
     name: spring-cloud-zuul-security-auth-server
 server:
   port: 7777
+  servlet:
+    context-path: /uaa # 根路径
 eureka:
   instance:
     instance-id: ${spring.application.name}:${server.port}

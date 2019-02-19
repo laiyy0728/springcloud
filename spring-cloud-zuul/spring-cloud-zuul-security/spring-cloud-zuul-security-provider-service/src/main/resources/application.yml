@@ -1,0 +1,12 @@
+server:
+  port: 7070
+spring:
+  application:
+    name: spring-cloud-zuul-security-provider-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}

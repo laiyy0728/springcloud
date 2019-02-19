@@ -32,13 +32,15 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 // 此处的 client 是 zuul server 中 security.oauth2.client.client-id
-                .withClient("zuul_server")
+                .withClient("spring-cloud-zuul-security-server")
                 // 此处的 secret 是 zuul server 中 security.oauth2.client.client-secret
                 .secret("secret")
                 // 作用域
-                .scopes("WRIGHT", "READ")
+                .scopes("WRIGHT", "read")
                 // 跳过认证确认的过程
                 .autoApprove(true)
+                //
+//                .redirectUris("http://localhost:7777")
                 // 权限
                 .authorities("WRIGHT_READ", "WRIGHT_WRITE")
                 // 可以使用的授权类型，默认为空
