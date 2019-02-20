@@ -9,11 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.laiyy.gitee.zuul.ratelimitt</groupId>
+    <groupId>com.laiyy.gitee.zuul.ratelimit</groupId>
     <artifactId>spring-cloud-zuul-ratelimit</artifactId>
 
     <packaging>pom</packaging>
 
+    <modules>
+        <module>spring-cloud-ratelimit-zuul-server</module>
+        <module>spring-cloud-ratelimit-provider-service</module>
+    </modules>
 
 
 </project>
