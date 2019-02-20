@@ -20,6 +20,7 @@
         <module>spring-cloud-zuul-provider-service-simple</module>
         <module>spring-cloud-zuul-security</module>
         <module>spring-cloud-zuul-ratelimit</module>
+        <module>spring-cloud-zuul-route</module>
     </modules>
 
 </project>
