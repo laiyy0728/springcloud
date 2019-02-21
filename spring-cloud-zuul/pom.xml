@@ -20,7 +20,8 @@
         <module>spring-cloud-zuul-provider-service-simple</module>
         <module>spring-cloud-zuul-security</module>
         <module>spring-cloud-zuul-ratelimit</module>
-        <module>spring-cloud-zuul-route</module>
+        <module>spring-cloud-zuul-metadata</module>
+        <module>spring-cloud-dynamic-route-zuul-server</module>
     </modules>
 
 </project>
