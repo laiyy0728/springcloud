@@ -1,0 +1,30 @@
+server:
+  port: 5555
+spring:
+  application:
+    name: spring-cloud-zuul-file-upload
+  servlet:
+    multipart:
+      enabled: true # \u4F7F\u7528 http multipart \u4E0A\u4F20
+      max-file-size: 100MB # \u6587\u4EF6\u6700\u5927\u5927\u5C0F\uFF0C\u9ED8\u8BA4 1M\uFF0C\u4E0D\u914D\u7F6E\u5219\u4E3A -1
+      max-request-size: 100MB # \u8BF7\u6C42\u6700\u5927\u5927\u5C0F\uFF0C\u9ED8\u8BA4 10M\uFF0C\u4E0D\u914D\u7F6E\u4E3A -1
+      file-size-threshold: 1MB # \u5F53\u4E0A\u4F20\u6587\u4EF6\u8FBE\u5230 1NB \u65F6\u8FDB\u884C\u78C1\u76D8\u5199\u5165
+      location: / # \u4E0A\u4F20\u7684\u4E34\u65F6\u76EE\u5F55
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000 # \u8D85\u65F6\u65F6\u95F4 30 \u79D2\uFF0C\u9632\u6B62\u5927\u6587\u4EF6\u4E0A\u4F20\u51FA\u73B0\u8D85\u65F6
+ribbon:
+  ConnectionTimeout: 3000
+  ReadTimeout: 30000
