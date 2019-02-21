@@ -1,5 +1,11 @@
 package com.laiyy.gitee.zuul.route.springclouddynamicroutezuulserver.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 /**
@@ -7,11 +13,20 @@ import java.util.Objects;
  * @date 2019/2/20 17:20
  * @description
  */
+@Entity
+@Table(name = "zuul_route")
 public class ZuulRouteEntity {
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     private String path;
+
+    @Column(name = "service_id")
     private String serviceId;
     private String url;
+
+    @Column(name = "strip_prefix")
     private boolean stripPrefix = true;
     private boolean retryable;
     private boolean enabled;
@@ -55,11 +70,11 @@ public class ZuulRouteEntity {
         return Objects.hash(id, path, serviceId, url, stripPrefix, retryable, enabled, description);
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

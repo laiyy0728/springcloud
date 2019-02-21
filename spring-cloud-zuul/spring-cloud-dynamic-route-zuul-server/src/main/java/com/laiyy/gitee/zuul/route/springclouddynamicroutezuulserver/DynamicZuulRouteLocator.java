@@ -1,6 +1,8 @@
 package com.laiyy.gitee.zuul.route.springclouddynamicroutezuulserver;
 
 import com.laiyy.gitee.zuul.route.springclouddynamicroutezuulserver.dao.ZuulPropertiesDao;
+import com.laiyy.gitee.zuul.route.springclouddynamicroutezuulserver.entity.ZuulRouteEntity;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.RefreshableRouteLocator;
 import org.springframework.cloud.netflix.zuul.filters.SimpleRouteLocator;
@@ -8,6 +10,7 @@ import org.springframework.cloud.netflix.zuul.filters.ZuulProperties;
 import org.springframework.util.StringUtils;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -37,7 +40,7 @@ public class DynamicZuulRouteLocator extends SimpleRouteLocator implements Refre
     protected Map<String, ZuulProperties.ZuulRoute> locateRoutes() {
         Map<String, ZuulProperties.ZuulRoute> routeMap = new LinkedHashMap<>();
         routeMap.putAll(super.locateRoutes());
-        routeMap.putAll(zuulPropertiesDao.getProperties());
+        routeMap.putAll(getProperties());
         Map<String, ZuulProperties.ZuulRoute> values = new LinkedHashMap<>();
         routeMap.forEach((path, zuulRoute) -> {
             path = path.startsWith("/") ? path : "/" + path;
@@ -48,5 +51,20 @@ public class DynamicZuulRouteLocator extends SimpleRouteLocator implements Refre
             values.put(path, zuulRoute);
         });
         return values;
+    }
+
+    private Map<String, ZuulProperties.ZuulRoute> getProperties() {
+        Map<String, ZuulProperties.ZuulRoute> routeMap = new LinkedHashMap<>();
+        List<ZuulRouteEntity> list = zuulPropertiesDao.findAllByParams();
+        list.forEach(entity -> {
+            if (org.apache.commons.lang.StringUtils.isBlank(entity.getPath())) {
+                return;
+            }
+            ZuulProperties.ZuulRoute route = new ZuulProperties.ZuulRoute();
+            BeanUtils.copyProperties(entity, route);
+            route.setId(String.valueOf(entity.getId()));
+            routeMap.put(route.getPath(), route);
+        });
+        return routeMap;
     }
 }
