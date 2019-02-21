@@ -22,6 +22,7 @@
         <module>spring-cloud-zuul-ratelimit</module>
         <module>spring-cloud-zuul-metadata</module>
         <module>spring-cloud-dynamic-route-zuul-server</module>
+        <module>spring-cloud-zuul-change-param</module>
     </modules>
 
 </project>
