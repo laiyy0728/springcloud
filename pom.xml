@@ -11,6 +11,7 @@
         <module>spring-cloud-hystrix</module>
         <module>spring-boot-actuator</module>
         <module>spring-cloud-zuul</module>
+        <module>spring-cloud-config</module>
     </modules>
 
     <parent>
