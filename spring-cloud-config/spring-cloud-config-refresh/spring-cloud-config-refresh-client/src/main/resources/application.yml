@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: spring-cloud-config-refresh-client
+server:
+  port: 9091
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

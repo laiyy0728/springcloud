@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-cloud-config-simple</module>
+        <module>spring-cloud-config-refresh</module>
     </modules>
 
     <groupId>com.laiyy.gitee.config</groupId>
