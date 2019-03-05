@@ -3,8 +3,8 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/laiyy0728/config-repo
-          search-paths: config-* # 匹配以 config 开头的文件夹
+          uri: https://gitee.com/laiyy0728/{application}
+          search-paths: config-simple
   application:
     name: spring-cloud-placeholder-server
 server:

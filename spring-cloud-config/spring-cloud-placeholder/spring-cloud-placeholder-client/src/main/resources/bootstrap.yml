@@ -3,5 +3,12 @@ spring:
     config:
       label: master
       uri: http://localhost:9090
-      name: config-repo
+      name: config-simple
       profile: dev
+#      profile: local
+#      name: special-simple
+#      profile: develop
+#      name: config-simple
+#      profile: dev
+#      name: simple
+#      profile: simple

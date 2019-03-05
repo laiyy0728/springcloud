@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/laiyy0728/config-repo
+          search-paths: config-simple
+          repos:
+            simple: https://gitee.com/laiyy0728/simple
+            special:
+              pattern: special*/dev*,*special*/dev*
+              uri: https://gitee.com/laiyy0728/special
+        native:
+          search-locations:  C:/Users/laiyy/AppData/Local/Temp/config-simple
+  application:
+    name: spring-cloud-placeholder-server
+server:
+  port: 9090
