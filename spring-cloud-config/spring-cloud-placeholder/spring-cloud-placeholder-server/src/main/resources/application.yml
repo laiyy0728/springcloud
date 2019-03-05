@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/laiyy0728/{application}
+          search-paths: config-simple
+  application:
+    name: spring-cloud-placeholder-server
+server:
+  port: 9090
