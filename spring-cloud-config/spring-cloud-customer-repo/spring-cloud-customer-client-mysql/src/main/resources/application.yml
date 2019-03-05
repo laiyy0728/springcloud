@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: spring-cloud-customer-client-mysql
+server:
+  port: 9091
