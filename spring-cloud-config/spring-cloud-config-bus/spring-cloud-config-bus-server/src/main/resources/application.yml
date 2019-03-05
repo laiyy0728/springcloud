@@ -4,7 +4,7 @@ spring:
       server:
         git:
           uri: https://gitee.com/laiyy0728/config-repo.git
-          search-paths: config-simple
+          search-paths: config-simple1
     bus:
       trace:
         enabled: true # \u662F\u5426\u542F\u7528bus\u8FFD\u8E2A
