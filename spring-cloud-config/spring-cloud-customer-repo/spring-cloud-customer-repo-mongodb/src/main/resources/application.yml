@@ -1,0 +1,10 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: spring-cloud-customer-repo-mongodb
+  data:
+    mongodb:
+      uri: mongodb://192.168.67.133/springcloud
+#      username: laiyy
+#      password: laiyy0728

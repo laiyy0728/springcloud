@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      label: master
+      uri: http://localhost:9090
+      name: springcloud
+      profile: prod
+      allow-override: true
+      override-none: true
+      override-system-properties: false

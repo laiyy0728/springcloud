@@ -22,5 +22,8 @@
 
     <modules>
         <module>spring-cloud-customer-repo-mysql</module>
+        <module>spring-cloud-customer-repo-mongodb</module>
+        <module>spring-cloud-customer-client-mysql</module>
+        <module>spring-cloud-customer-client-mongo</module>
     </modules>
 </project>
