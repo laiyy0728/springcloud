@@ -16,6 +16,7 @@
         <module>spring-cloud-config-bus</module>
         <module>spring-cloud-placeholder</module>
         <module>spring-cloud-customer-repo</module>
+        <module>spring-cloud-autoconfig</module>
     </modules>
 
     <groupId>com.laiyy.gitee.config</groupId>
