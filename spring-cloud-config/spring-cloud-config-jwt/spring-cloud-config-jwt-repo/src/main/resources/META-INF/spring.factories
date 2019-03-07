@@ -1,0 +1,2 @@
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+  com.laiyy.gitee.config.springcloudconfigjwtrepo.config.ConfigClientJwtConfiguration

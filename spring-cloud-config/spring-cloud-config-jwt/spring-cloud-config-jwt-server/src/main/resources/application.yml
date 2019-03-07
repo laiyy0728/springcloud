@@ -1,0 +1,16 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: spring-cloud-autoconfig-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/laiyy0728/config-repo
+          search-paths: config-simple
+          force-pull: true # 强制拉取，覆盖本地
+  security:
+    user:
+      name: root
+      password: 123
