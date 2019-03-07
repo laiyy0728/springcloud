@@ -17,6 +17,7 @@
         <module>spring-cloud-placeholder</module>
         <module>spring-cloud-customer-repo</module>
         <module>spring-cloud-autoconfig</module>
+        <module>spring-cloud-config-fallback</module>
     </modules>
 
     <groupId>com.laiyy.gitee.config</groupId>
