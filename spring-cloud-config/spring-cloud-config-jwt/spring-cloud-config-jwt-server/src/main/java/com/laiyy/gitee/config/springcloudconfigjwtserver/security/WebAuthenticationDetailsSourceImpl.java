@@ -3,6 +3,7 @@ package com.laiyy.gitee.config.springcloudconfigjwtserver.security;
 import com.google.gson.Gson;
 import com.laiyy.gitee.config.springcloudconfigjwtserver.model.JwtAuthenticationRequest;
 import org.springframework.security.authentication.AuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
@@ -14,6 +15,7 @@ import java.io.InputStreamReader;
  * @date 2019/3/7 16:36
  * @description 将传递过来的对象数据封装到 JwtAuthenticationRequest 中
  */
+@Component
 public class WebAuthenticationDetailsSourceImpl implements AuthenticationDetailsSource<HttpServletRequest, JwtAuthenticationRequest> {
     @Override
     public JwtAuthenticationRequest buildDetails(HttpServletRequest request) {

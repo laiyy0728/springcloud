@@ -13,7 +13,7 @@ import java.io.Serializable;
 /**
  * @author laiyy
  * @date 2019/3/7 17:00
- * @description
+ * @description 401
  */
 @Component
 public class JwtAuthenticationEntryEndpoint implements AuthenticationEntryPoint, Serializable {
