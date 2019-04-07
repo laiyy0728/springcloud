@@ -19,6 +19,7 @@
         <module>spring-cloud-autoconfig</module>
         <module>spring-cloud-config-fallback</module>
         <module>spring-cloud-config-jwt</module>
+        <module>spring-cloud-config-ha</module>
     </modules>
 
     <groupId>com.laiyy.gitee.config</groupId>
