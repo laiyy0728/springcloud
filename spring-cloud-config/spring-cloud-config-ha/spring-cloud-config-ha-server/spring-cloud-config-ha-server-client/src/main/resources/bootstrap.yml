@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    config:
+      label: master
+      name: config-simple
+      profile: dev
+      discovery:
+        enabled: true # 是否从注册中心获取 config server
+        service-id: spring-cloud-config-ha-server-app # 注册中心 config server 的 serviceId
+eureka:
+  client:
+    service-url:
+      defauleZone: http://localhost:8761/eureka/

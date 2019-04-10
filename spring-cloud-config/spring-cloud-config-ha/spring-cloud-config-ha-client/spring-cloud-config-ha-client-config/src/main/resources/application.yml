@@ -1,0 +1,6 @@
+server:
+  port: 9015
+
+spring:
+  application:
+    name: spring-cloud-config-ha-client-config

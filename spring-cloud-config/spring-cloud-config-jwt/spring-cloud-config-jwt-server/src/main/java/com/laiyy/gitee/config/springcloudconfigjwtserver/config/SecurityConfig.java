@@ -5,6 +5,7 @@ import com.laiyy.gitee.config.springcloudconfigjwtserver.security.JwtAuthenticat
 import com.laiyy.gitee.config.springcloudconfigjwtserver.security.WebAuthenticationDetailsSourceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +18,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.web.filter.DelegatingFilterProxy;
+
+import javax.servlet.DispatcherType;
+import java.util.Collections;
 
 /**
  * @author laiyy
@@ -54,6 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * 向 Spring 容器注入 AuthenticationManager
+     *
      * @return AuthenticationManager
      * @throws Exception 可能出现的异常
      */
@@ -82,7 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * 密码编码器
      */
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -90,13 +96,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * jwt filter
      */
     @Bean
-    public JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter() throws Exception{
+    public JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter() throws Exception {
         JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter = new JwtAuthenticationTokenFilter();
         jwtAuthenticationTokenFilter.setAuthenticationManager(authenticationManager());
         jwtAuthenticationTokenFilter.setAuthenticationDetailsSource(webAuthenticationDetailsSource);
         return jwtAuthenticationTokenFilter;
     }
 
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean() throws Exception {
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        registrationBean.setFilter(new DelegatingFilterProxy(jwtAuthenticationTokenFilter()));
+        registrationBean.addInitParameter("targetFilterLifecycle", "true");
+        registrationBean.setUrlPatterns(Collections.singleton("/*"));
+        registrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico");
+        registrationBean.setDispatcherTypes(DispatcherType.REQUEST);
+
+        registrationBean.setEnabled(false);
+        return registrationBean;
+    }
 
 
 }
