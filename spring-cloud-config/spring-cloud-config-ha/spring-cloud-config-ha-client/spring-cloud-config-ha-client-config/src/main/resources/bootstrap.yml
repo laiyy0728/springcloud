@@ -3,8 +3,8 @@ spring:
     config:
       label: master
       uri: http://localhost:9090
-      name: config-info
+      name: config-simple
       profile: dev
       backup:
         enabled: true
-        fallbackLocation: /use/local/src
+        fallbackLocation: D:/ftp

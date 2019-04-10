@@ -40,7 +40,13 @@ public class ConfigSupportConfiguration implements ApplicationContextInitializer
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    private final Integer orderNumber = Ordered.HIGHEST_PRECEDENCE + 1;
+    /**
+     * 一定要注意加载顺序！！！
+     *
+     * bootstrap.yml 加载类：org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration 的加载顺序是 HIGHEST_PRECEDENCE+10，如果当前配置类再其之前加载，无法找到 bootstrap 配置文件中的信息
+     * 继而无法加载到本地
+     */
+    private final Integer orderNumber = Ordered.HIGHEST_PRECEDENCE + 9;
 
     @Autowired(required = false)
     private List<PropertySourceLocator> propertySourceLocators = Collections.EMPTY_LIST;
@@ -100,6 +106,7 @@ public class ConfigSupportConfiguration implements ApplicationContextInitializer
      * 从本地加载配置
      */
     private Properties loadBackupProperty(String fallbackLocation) {
+        logger.info(">>>>>>>>>>>> 正在从本地加载！<<<<<<<<<<<<<<<<<");
         PropertiesFactoryBean propertiesFactoryBean = new PropertiesFactoryBean();
         Properties properties = new Properties();
         try {
@@ -107,6 +114,9 @@ public class ConfigSupportConfiguration implements ApplicationContextInitializer
             propertiesFactoryBean.setLocation(fileSystemResource);
             propertiesFactoryBean.afterPropertiesSet();
             properties = propertiesFactoryBean.getObject();
+            if (properties != null){
+                logger.info(">>>>>>>>>>>>>>> 读取成功！<<<<<<<<<<<<<<<<<<<<<<<<");
+            }
         }catch (Exception e){
             e.printStackTrace();
             return null;
@@ -183,11 +193,11 @@ public class ConfigSupportConfiguration implements ApplicationContextInitializer
      * 获取 config service 配置资源
      */
     private PropertySource getLoadedCloudPropertySource(MutablePropertySources propertySources) {
-//        if (!propertySources.contains(PropertySourceBootstrapConfiguration.BOOTSTRAP_PROPERTY_SOURCE_NAME)){
-//            return null;
-//        }
-//        PropertySource<?> propertySource = propertySources.get(PropertySourceBootstrapConfiguration.BOOTSTRAP_PROPERTY_SOURCE_NAME);
-        PropertySource<?> propertySource = propertySources.get("defaultProperties");
+        if (!propertySources.contains(PropertySourceBootstrapConfiguration.BOOTSTRAP_PROPERTY_SOURCE_NAME)){
+            return null;
+        }
+        PropertySource<?> propertySource = propertySources.get(PropertySourceBootstrapConfiguration.BOOTSTRAP_PROPERTY_SOURCE_NAME);
+//        PropertySource<?> propertySource = propertySources.get("defaultProperties");
         if (propertySource instanceof CompositePropertySource) {
             for (PropertySource<?> source : ((CompositePropertySource) propertySource).getPropertySources()) {
                 if ("configService".equals(source.getName())){
