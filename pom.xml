@@ -12,6 +12,7 @@
         <module>spring-boot-actuator</module>
         <module>spring-cloud-zuul</module>
         <module>spring-cloud-config</module>
+        <module>spring-cloud-apm</module>
     </modules>
 
     <parent>
