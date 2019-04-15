@@ -1,0 +1,8 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: spring-cloud-apm-sleuth-filter-consumer
+  sleuth:
+    baggage-keys:
+      - SessionId
