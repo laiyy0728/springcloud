@@ -15,6 +15,7 @@
     <modules>
         <module>spring-cloud-apm-sleuth</module>
         <module>spring-cloud-apm-sleuth-filter</module>
+        <module>spring-cloud-apm-skywalking</module>
     </modules>
 
     <dependencies>

@@ -1,0 +1,39 @@
+spring:
+  application:
+    name:
+      spring-cloud-apm-skywalking-zuul
+server:
+  port: 9020
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+zuul:
+  routes:
+    spring-cloud-apm-skywlaking-consumer:
+      path: /client/**
+      serviceId: spring-cloud-apm-skywlaking-consumer
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 30000
+  ConnectionTimeout: 30000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: false
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 1000
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 500
+
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 120001
+
