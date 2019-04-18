@@ -11,6 +11,8 @@
 
     <artifactId>spring-cloud-apm-skywalking</artifactId>
 
+    <packaging>pom</packaging>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
