@@ -1,0 +1,8 @@
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: after_route
+#          uri: http://baidu.com
+#          predicates:
+#            - Before=2019-04-18T22:13:12.556+08:00[GMT+08:00]
